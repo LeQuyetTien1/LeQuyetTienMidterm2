@@ -40,15 +40,19 @@ public class Program
                     students.Add(std.StudID, std);
                     break;
                 case 2:
-                    Console.WriteLine("List students: ");
-                    foreach (DictionaryEntry i in students)
+                    Console.WriteLine("List student:");
+                    foreach (Student st in students.Values)
                     {
-                        
-                        Console.WriteLine("ID: " + i.Key + i.Value);
+                        st.Print();
                     }
-                    List<Student> s = new List<Student>();
                     break;
                 case 3:
+                    Console.WriteLine("List student:");
+                    foreach (Student st in students.Values)
+                    {
+                        st.CalAvg();
+                        st.Print();
+                    }
                     break;
                 case 4:
                     {
@@ -63,24 +67,49 @@ public class Program
                                 Console.Write("Enter ID: ");
                                 int findid = int.Parse(Console.ReadLine());
                                 bool a = false;
-                                foreach(DictionaryEntry i in students)
+                                foreach(Student st in students.Values)
                                 {
-                                    if ((int)i.Key == findid)
+                                    if (st.StudID == findid)
                                     {
-                                        Console.WriteLine("ID: " + i.Key + i.Value);
+                                        st.Print();
                                         a = true;
                                     }
                                 }
-                                if (a = false) Console.WriteLine("Can not find student");
+                                if (a == false) Console.WriteLine("Can not find student");
                                 break;
                             case 2:
                                 Console.Write("Enter name: ");
                                 string findname= Console.ReadLine();
+                                bool b=false;
+                                foreach(Student st in students.Values)
+                                {
+                                    if(st.StudName == findname)
+                                    {
+                                        st.Print();
+                                        b=true;
+                                    }
+                                }
+                                if (b == false) Console.WriteLine("Can not find student");
+                                break;
+                            case 3:
+                                Console.Write("Enter class: ");
+                                string findclass = Console.ReadLine();
+                                bool c = false;
+                                foreach (Student st in students.Values)
+                                {
+                                    if (st.StudClass == findclass)
+                                    {
+                                        st.Print();
+                                        c = true;
+                                    }
+                                }
+                                if (c == false) Console.WriteLine("Can not find student");
                                 break;
                         }
                         break;
                     }
-                case 5: return;
+                case 5: 
+                    return;
             }
         }
         

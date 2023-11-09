@@ -39,12 +39,5 @@ namespace LeQuyetTienMidterm2
             StudAvgMark = StudAvgMark / 3;
             return StudAvgMark;
         }
-        public override string ToString()
-        {
-            return "\nName: " + StudName +
-            "\nGender: " + StudGender +
-            "\nAge: " + StudAge +
-            "\nClass: " + StudClass;
-        }
     }
 }
